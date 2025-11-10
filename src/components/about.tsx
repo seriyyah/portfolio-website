@@ -1,27 +1,12 @@
 'use client';
 
-import { personalInfo, skills } from '@/data/portfolio';
+import { personalInfo } from '@/data/portfolio';
 import { cn } from '@/lib/utils';
 import { MapPin, Mail, Phone, Download } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from './ui/button';
 
 export function About() {
-  const skillCategories = skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) {
-      acc[skill.category] = [];
-    }
-    acc[skill.category].push(skill);
-    return acc;
-  }, {} as Record<string, typeof skills>);
-
-  const categoryLabels = {
-    backend: 'Backend Development',
-    frontend: 'Frontend Development',
-    database: 'Databases',
-    devops: 'DevOps & Infrastructure',
-    tools: 'Tools & Methodologies'
-  };
 
   return (
     <section
@@ -137,42 +122,6 @@ export function About() {
                 </div>
               </div>
 
-              {/* Skills */}
-              <div>
-                <h3 className='text-2xl font-bold mb-8'>Technical Expertise</h3>
-                <div className='space-y-8'>
-                  {Object.entries(skillCategories).map(([category, categorySkills]) => (
-                    <div key={category} className='bg-card border border-border rounded-xl p-6'>
-                      <h4 className='text-lg font-semibold text-primary mb-4'>
-                        {categoryLabels[category as keyof typeof categoryLabels] || category}
-                      </h4>
-                      <div className='grid sm:grid-cols-2 gap-4'>
-                        {categorySkills.map((skill) => (
-                          <div key={skill.id} className='flex items-center justify-between'>
-                            <div className='flex items-center gap-3'>
-                              <span className='text-xl' role='img' aria-label={skill.name}>
-                                {skill.icon}
-                              </span>
-                              <span className='font-medium'>{skill.name}</span>
-                            </div>
-                            <div className='flex items-center gap-2'>
-                              <div className='w-20 h-2 bg-muted rounded-full overflow-hidden'>
-                                <div 
-                                  className='h-full bg-gradient-warm transition-all duration-1000 ease-out'
-                                  style={{ width: `${skill.level}%` }}
-                                />
-                              </div>
-                              <span className='text-sm text-foreground/60 w-8 text-right'>
-                                {skill.level}%
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
               {/* Call to Action */}
               <div className='bg-gradient-warm-subtle border border-primary/20 rounded-xl p-8 text-center'>
