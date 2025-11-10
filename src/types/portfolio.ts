@@ -1,7 +1,7 @@
 export interface Skill {
   readonly id: string;
   readonly name: string;
-  readonly level: number; // 1-100
+  readonly level: number;
   readonly category: SkillCategory;
   readonly icon?: string;
 }

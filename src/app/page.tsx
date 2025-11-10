@@ -1,3 +1,4 @@
+import { About } from '@/components/about';
 import { Hero } from '@/components/hero';
 import { Navigation } from '@/components/navigation';
 
@@ -8,13 +9,8 @@ export default function Home() {
       <main>
         <Hero />
         
-        {/* Placeholder sections for the remaining components */}
-        <section id='about' className='min-h-screen flex items-center justify-center bg-background-secondary'>
-          <div className='text-center'>
-            <h2 className='text-4xl font-bold gradient-text mb-4'>About Me</h2>
-            <p className='text-foreground/70'>About section coming soon...</p>
-          </div>
-        </section>
+        {/* About Me Section */}
+        <About />
         
         <section id='skills' className='min-h-screen flex items-center justify-center bg-background'>
           <div className='text-center'>
