@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark theme colors */
+  --background: 12 10 9; /* neutral-950 */
+  --background-secondary: 28 25 23; /* neutral-900 */
+  --foreground: 250 250 249; /* neutral-50 */
+  --foreground-muted: 168 162 158; /* neutral-400 */
+  
+  /* Primary warm orange/amber */
+  --primary: 31 81 255; /* Will be overridden */
+  --primary-foreground: 12 10 9;
+  
+  /* Secondary warm colors */
+  --secondary: 41 37 36; /* neutral-800 */
+  --secondary-foreground: 250 250 249;
+  
+  /* Accent warm red/coral */
+  --accent: 41 37 36;
+  --accent-foreground: 250 250 249;
+  
+  /* UI component colors */
+  --muted: 41 37 36; /* neutral-800 */
+  --muted-foreground: 168 162 158; /* neutral-400 */
+  
+  --popover: 28 25 23; /* neutral-900 */
+  --popover-foreground: 250 250 249;
+  
+  --card: 28 25 23; /* neutral-900 */
+  --card-foreground: 250 250 249;
+  
+  --border: 68 64 60; /* neutral-700 */
+  --input: 41 37 36; /* neutral-800 */
+  --ring: 245 158 11; /* primary-400 warm orange */
+  
+  --destructive: 239 68 68; /* red-500 */
+  --destructive-foreground: 250 250 249;
+  
+  /* Border radius */
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 12 10 9;
+  --background-secondary: 28 25 23;
+  --foreground: 250 250 249;
+  --foreground-muted: 168 162 158;
+  
+  --primary: 245 158 11; /* warm orange */
+  --primary-foreground: 12 10 9;
+  
+  --secondary: 41 37 36;
+  --secondary-foreground: 250 250 249;
+  
+  --accent: 239 68 68; /* warm red */
+  --accent-foreground: 250 250 249;
+  
+  --muted: 41 37 36;
+  --muted-foreground: 168 162 158;
+  
+  --popover: 28 25 23;
+  --popover-foreground: 250 250 249;
+  
+  --card: 28 25 23;
+  --card-foreground: 250 250 249;
+  
+  --border: 68 64 60;
+  --input: 41 37 36;
+  --ring: 245 158 11;
+  
+  --destructive: 239 68 68;
+  --destructive-foreground: 250 250 249;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
+}
+
+/* Typography improvements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a,
+[role="button"] {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Gradient text effect for headings */
+.gradient-text {
+  background: linear-gradient(135deg, #f59e0b, #f97316, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+  background-size: 200% 200%;
+}
