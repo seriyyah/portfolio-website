@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Read.md
+## Project Overview
 
-## Getting Started
+This is a modern portfolio website built with Next.js 16, React 19, TypeScript, and Tailwind CSS. It showcases personal information, skills, work experience, and projects with a focus on clean code architecture and type safety.
 
-First, run the development server:
+## Development Commands
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Essential Commands
+- `npm run dev` - Start development server on http://localhost:3000
+- `npm run build` - Build production application
+- `npm run start` - Start production server (requires build first)
+- `npm run lint` - Run ESLint for code linting
+
+### Testing Commands
+Currently no test framework is configured. When adding tests, follow these patterns:
+- Unit tests: Use Jest with React Testing Library
+- E2E tests: Consider Playwright or Cypress
+
+## Project Architecture
+
+### Directory Structure
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Root layout with fonts and metadata
+│   ├── page.tsx           # Home page with all sections
+│   └── globals.css        # Global styles and CSS variables
+├── components/            # Reusable components
+│   ├── hero.tsx          # Landing section with typewriter effect
+│   ├── navigation.tsx    # Fixed navigation with active states
+│   └── ui/               # Shadcn-style UI components
+│       └── button.tsx    # Button component with CVA variants
+├── data/                 # Static data and content
+│   └── portfolio.ts      # Personal info, skills, experience, projects
+├── hooks/                # Custom React hooks
+│   └── useTypewriter.ts  # Advanced typewriter animation hook
+├── lib/                  # Utilities and helpers
+│   └── utils.ts          # Common utilities (cn, debounce, throttle)
+└── types/                # TypeScript type definitions
+    └── portfolio.ts      # Domain types for portfolio data
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Setup
+- Node.js 18+ required
+- Strict TypeScript configuration
+- ESLint for code quality
+- Dark mode as default theme
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technology Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Framework**: Next.js 16 with App Router
+- **Language**: TypeScript with strict configuration
+- **Styling**: Tailwind CSS v4 with custom design system
+- **UI Components**: Custom components with class-variance-authority
+- **Animations**: Framer Motion + CSS animations
+- **Fonts**: Geist Sans and Geist Mono from Google Fonts
+- **Icons**: Lucide React
+- **Forms**: React Hook Form with Zod validation (ready for contact form)
+- **Build Tool**: Next.js built-in bundler with React Compiler
