@@ -152,12 +152,16 @@ export function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2'>
-        <div className='flex flex-col items-center space-y-2 animate-bounce'>
-          <span className='text-sm text-foreground/50'>Scroll down</span>
-          <ArrowDown className='h-5 w-5 text-primary' />
+      <button
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+        className='absolute bottom-8 left-1/2 transform -translate-x-1/2 group cursor-pointer hover:scale-110 transition-transform'
+        aria-label='Scroll to about section'
+      >
+        <div className='flex flex-col items-center space-y-2 animate-bounce group-hover:text-primary transition-colors'>
+          <span className='text-sm text-foreground/50 group-hover:text-primary/80'>Scroll down</span>
+          <ArrowDown className='h-5 w-5 text-primary group-hover:scale-110 transition-transform' />
         </div>
-      </div>
+      </button>
     </section>
   );
 }
